@@ -1,0 +1,175 @@
+/* Animation System for Scroll-Triggered Effects */
+
+/* Base animation classes - elements start invisible and transformed */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-down {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(15px);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Mobile-optimized animations for snappy responsiveness */
+@media (max-width: 768px) {
+    .fade-in-up,
+    .fade-in-down,
+    .fade-in-left,
+    .fade-in-right,
+    .scale-in {
+        transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .fade-in-up,
+    .fade-in-down,
+    .fade-in-left,
+    .fade-in-right,
+    .scale-in {
+        transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+
+/* Active state - elements become visible and return to normal position */
+.fade-in-up.active,
+.fade-in-down.active,
+.fade-in-left.active,
+.fade-in-right.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.scale-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Minimal animation delays for immediate response */
+.delay-100 {
+    transition-delay: 0.05s;
+}
+
+.delay-200 {
+    transition-delay: 0.1s;
+}
+
+.delay-300 {
+    transition-delay: 0.15s;
+}
+
+.delay-400 {
+    transition-delay: 0.2s;
+}
+
+.delay-500 {
+    transition-delay: 0.25s;
+}
+
+/* Mobile-optimized minimal delays */
+@media (max-width: 768px) {
+    .delay-100 {
+        transition-delay: 0.03s;
+    }
+    
+    .delay-200 {
+        transition-delay: 0.06s;
+    }
+    
+    .delay-300 {
+        transition-delay: 0.09s;
+    }
+    
+    .delay-400 {
+        transition-delay: 0.12s;
+    }
+    
+    .delay-500 {
+        transition-delay: 0.15s;
+    }
+}
+
+/* Extra small mobile devices - ultra-fast delays */
+@media (max-width: 480px) {
+    .delay-100 {
+        transition-delay: 0.02s;
+    }
+    
+    .delay-200 {
+        transition-delay: 0.04s;
+    }
+    
+    .delay-300 {
+        transition-delay: 0.06s;
+    }
+    
+    .delay-400 {
+        transition-delay: 0.08s;
+    }
+    
+    .delay-500 {
+        transition-delay: 0.1s;
+    }
+}
+
+/* Faster animations for smaller elements */
+.fade-in-up.fast,
+.fade-in-down.fast,
+.fade-in-left.fast,
+.fade-in-right.fast,
+.scale-in.fast {
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Slower animations for larger elements */
+.fade-in-up.slow,
+.fade-in-down.slow,
+.fade-in-left.slow,
+.fade-in-right.slow,
+.scale-in.slow {
+    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up,
+    .fade-in-down,
+    .fade-in-left,
+    .fade-in-right,
+    .scale-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .fade-in-up.active,
+    .fade-in-down.active,
+    .fade-in-left.active,
+    .fade-in-right.active,
+    .scale-in.active {
+        opacity: 1;
+        transform: none;
+    }
+} 

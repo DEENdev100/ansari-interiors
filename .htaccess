@@ -1,0 +1,9 @@
+# Redirect root to new homepage folder
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /interior-design-in-chennai/ [R=301,L]
+
+# Enforce trailing slash for /interior-design-in-chennai
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^interior-design-in-chennai$ /interior-design-in-chennai/ [R=301,L] 
